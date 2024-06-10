@@ -44,7 +44,7 @@ export class AuthService {
     console.log("Trying to get and token from Spotify...");
 
     const request: Request = new Request(URIS.authToken);
-    const formData: Record<string, string> = {}
+    const formData: Record<string, string> = {};
 
     formData.grant_type = "client_credentials";
     formData.client_id = this.clientId;
@@ -57,9 +57,11 @@ export class AuthService {
     })
       .then(async (res: Response) => {
         if (res.status === 200) {
-          return await res.json() as unknown as SpotifyTokenResponseBody;
+          return (await res.json()) as unknown as SpotifyTokenResponseBody;
         } else {
-          return await res.json() as unknown as SpotifyAuthErrorResponse ?? null;
+          return (
+            ((await res.json()) as unknown as SpotifyAuthErrorResponse) ?? null
+          );
         }
       })
       .then((body) => {
@@ -70,7 +72,7 @@ export class AuthService {
             now.getSeconds() + (body as SpotifyTokenResponseBody).expires_in
           );
           this.expirationDate = now;
-          console.log("Access token received from Spotify.")
+          console.log("Access token received from Spotify.");
         }
         if (body && Object.hasOwn(body, "error")) {
           throw new Error(
@@ -88,14 +90,14 @@ export class AuthService {
   }
 
   private checkTokenExpiration() {
-    if(!this.expirationDate) {
-        return true;
+    if (!this.expirationDate) {
+      return true;
     }
-    const now = new Date()
-    const expired = now > this.expirationDate
+    const now = new Date();
+    const expired = now > this.expirationDate;
 
-    if(expired) {
-        console.log("Spotify token is expired...")
+    if (expired) {
+      console.log("Spotify token is expired...");
     }
 
     return expired;
