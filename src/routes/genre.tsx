@@ -2,21 +2,23 @@ import { Hono } from "hono";
 import { URIS } from "../constants/SpotifyAPIConstants";
 import { SpotifySearchResponse } from "../types/search";
 import { Results } from "../templates/search/Results";
+import { SpotifyArtistSearchResponse } from "../types/artist";
+import { html } from "hono/html";
 
-export function createSearchRoute() {
+export function createGenreRoute() {
   const homepage = new Hono();
 
   homepage.get("/", async (c) => {
-    const query = c.req.query("track");
+    const query = c.req.query("artistId");
     if (query) {
       const result = await searchSpotify(query);
+      console.log(result);
       if (result) {
         return c.html(
-          <Results
-            albums={result.albums}
-            tracks={result.tracks}
-            artists={result.artists}
-          />
+          <div>
+            {result.genres.map((genre) => genre)}
+            <div />
+          </div>
         );
       }
     }
@@ -28,18 +30,15 @@ export function createSearchRoute() {
 }
 
 async function searchSpotify(
-  text: string
-): Promise<null | SpotifySearchResponse> {
+  id: string
+): Promise<null | SpotifyArtistSearchResponse> {
   try {
-    const res = await fetch(
-      `${URIS.search}?q=${text}&type=artist,track,album&limit=6`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${authService.getToken()}`,
-        },
-      }
-    );
+    const res = await fetch(`${URIS.artist}${id}`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${authService.getToken()}`,
+      },
+    });
 
     console.log(res);
     return await res.json();

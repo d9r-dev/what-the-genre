@@ -13,6 +13,7 @@ export const LayoutTemplate = (props: SiteData) => html`
       <title>${props.title}</title>
       <meta name="description" content="${props.description}" />
       <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+      <link rel="stylesheet" href="static/css/search.css" />
     </head>
     <body>
       ${props.children ?? null}
