@@ -4,10 +4,15 @@ export const HomepageTemplate = (props: SiteData) => (
   <LayoutTemplate {...props}>
     <div class="wrapper">
       <h1>{props.title}</h1>
-      <p class="intro-text glass-background">
-        You want to know what genre the artist you are listening to belongs to?
-        Just search for it below!
-      </p>
+      <div class="glass-background-wrapper">
+        <div class="glass-background-element">
+          <p class="intro-text">
+            You want to know what genre the artist you are listening to belongs
+            to? Just search for it below!
+          </p>
+        </div>
+        <div class="gradient-bg"></div>
+      </div>
       <input
         id="input"
         name="track"

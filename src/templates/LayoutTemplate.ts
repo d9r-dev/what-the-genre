@@ -22,22 +22,6 @@ export const LayoutTemplate = (props: SiteData) => html`
       />
     </head>
     <body>
-      <ul class="background">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
       ${props.children ?? null}
     </body>
   </html>
