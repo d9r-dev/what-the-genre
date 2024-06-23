@@ -7,7 +7,7 @@ export interface SiteData {
 }
 
 export const LayoutTemplate = (props: SiteData) => html`
-  <html>
+  <html lang="en-US">
     <head>
       <meta charset="UTF-8" />
       <title>${props.title}</title>

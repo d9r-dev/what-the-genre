@@ -4,6 +4,7 @@ import { SpotifySearchResponse } from "../types/search";
 import { Results } from "../templates/search/Results";
 import { SpotifyArtistSearchResponse } from "../types/artist";
 import { html } from "hono/html";
+import { Chip } from "../templates/search/Chip";
 
 export function createGenreRoute() {
   const homepage = new Hono();
@@ -15,8 +16,10 @@ export function createGenreRoute() {
       console.log(result);
       if (result) {
         return c.html(
-          <div>
-            {result.genres.map((genre) => genre)}
+          <div class="genres">
+            {result.genres.map((genre) => (
+              <Chip text={genre} />
+            ))}
             <div />
           </div>
         );
