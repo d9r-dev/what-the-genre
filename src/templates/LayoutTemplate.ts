@@ -9,6 +9,7 @@ export interface SiteData {
 export const LayoutTemplate = (props: SiteData) => html`
   <html lang="en-US">
     <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta charset="UTF-8" />
       <title>${props.title}</title>
       <meta name="description" content="${props.description}" />

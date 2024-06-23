@@ -42,7 +42,7 @@ button {
 }
 
 h1 {
-  font-size: 52px;
+  font-size: 32px;
   font-weight: 600;
 }
 
@@ -76,8 +76,8 @@ h2 {
 }
 
 .intro-text {
-  width: 60%;
-  font-size: 1.5rem;
+  width: 90%;
+  font-size: 1rem;
   line-height: 1.5;
   text-align: center;
   height: 100%;
@@ -152,7 +152,7 @@ h2 {
 
 .input-group {
   width: 100%;
-  max-width: 20em;
+  max-width: 90%;
   display: flex;
   flex-direction: column;
   z-index: 2;
@@ -239,10 +239,6 @@ h2 {
 #results {
   margin-bottom: 3rem;
   width: 90%;
-
-  @media screen and (min-width: 992px) {
-    width: 50%;
-  }
 }
 
 .divider {
@@ -281,4 +277,23 @@ h2 {
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 52px;
+  }
+
+  #results {
+    width: 50%;
+  }
+
+  .input-group {
+    max-width: 20em;
+  }
+  .intro-text {
+    font-size: 1.5rem;
+    width: 50%;
+  }
 }
