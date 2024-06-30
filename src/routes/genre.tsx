@@ -14,13 +14,19 @@ export function createGenreRoute() {
     if (query) {
       const result = await searchSpotify(query);
       console.log(result);
-      if (result) {
+      if (result && result.genres.length > 0) {
         return c.html(
           <div class="genres">
             {result.genres.map((genre) => (
               <Chip text={genre} />
             ))}
             <div />
+          </div>
+        );
+      } else {
+        return c.html(
+          <div class="genres">
+            <Chip text={"No genres available"} />
           </div>
         );
       }
