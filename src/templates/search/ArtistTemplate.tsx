@@ -1,9 +1,10 @@
 import { ArtistsItem } from "../../types/search";
 
 export const ArtistTemplate = (props: ArtistsItem) => (
-  <>
+  <div data-controller="search" data-search-name-value={props.name}>
     <button
       class="result-item"
+      data-action="click->search#switchInput"
       hx-get="/genre"
       hx-vals={`{ "artistId": "${props.id}" }`}
       hx-target="#results"
@@ -13,5 +14,5 @@ export const ArtistTemplate = (props: ArtistsItem) => (
       )}
       <p>{props.name}</p>
     </button>
-  </>
+  </div>
 );

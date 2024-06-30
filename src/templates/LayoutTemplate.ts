@@ -21,6 +21,7 @@ export const LayoutTemplate = (props: SiteData) => html`
         href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap"
         rel="stylesheet"
       />
+      <script src="static/js/index.js" defer></script>
     </head>
     <body>
       ${props.children ?? null}
