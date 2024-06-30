@@ -1,9 +1,12 @@
 {
   "scripts": {
+    "build": "bun build src/client/scripts/index.js --outdir ./static/js",
+    "build:dev": "bun build src/client/scripts/index.js --outdir ./static/js --watch",
     "dev": "bun run --hot --inspect src/index.ts",
     "start": "bun run src/index.ts"
   },
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
     "hono": "^4.4.4"
   },
   "devDependencies": {

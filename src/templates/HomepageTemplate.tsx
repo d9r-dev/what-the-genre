@@ -13,6 +13,7 @@ export const HomepageTemplate = (props: SiteData) => (
           Search
         </label>
         <input
+          data-search-target="input"
           type="text"
           id="input"
           name="track"
