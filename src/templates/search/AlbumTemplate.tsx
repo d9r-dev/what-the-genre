@@ -1,9 +1,10 @@
 import { AlbumElement } from "../../types/search";
 
 export const AlbumTemplate = (props: AlbumElement) => (
-  <>
+  <div data-controller="search" data-search-name-value={props.artists[0].name}>
     <button
       class="result-item"
+      data-action="click->search#switchInput"
       hx-get="/genre"
       hx-vals={`{ "artistId": "${props.artists[0].id}" }`}
       hx-target="#results"
@@ -13,5 +14,5 @@ export const AlbumTemplate = (props: AlbumElement) => (
       )}
       <p>{props.name}</p>
     </button>
-  </>
+  </div>
 );
