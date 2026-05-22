@@ -14,6 +14,7 @@ export const LayoutTemplate = (props: SiteData) => html`
       <title>${props.title}</title>
       <meta name="description" content="${props.description}" />
       <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+      <link rel="icon" type="image/x-icon" href="static/favicon.ico" />
       <link rel="stylesheet" href="static/css/search.css" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
