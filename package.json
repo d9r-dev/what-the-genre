@@ -1,4 +1,9 @@
 {
+  "name": "what-the-genre",
+  "version": "2.0.0",
+  "description": "Search MusicBrainz for the genres of any artist",
+  "type": "module",
+  "keywords": ["music", "musicbrainz", "genres", "hono", "htmx", "stimulus"],
   "scripts": {
     "build": "bun build src/client/scripts/index.js --outdir ./static/js",
     "build:dev": "bun build src/client/scripts/index.js --outdir ./static/js --watch",
@@ -7,7 +12,8 @@
   },
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "hono": "^4.4.4"
+    "hono": "^4.4.4",
+    "musicbrainz-api": "^1.2.1"
   },
   "devDependencies": {
     "@types/bun": "latest"

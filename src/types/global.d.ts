@@ -1,7 +1,7 @@
-import { AuthService } from "../services/AuthService";
+import { MusicBrainzApi } from "musicbrainz-api";
 
 declare global {
-  var authService: AuthService;
+  var musicBrainzApi: MusicBrainzApi;
 }
 
 export {};

@@ -1,6 +1,6 @@
-import { ArtistsItem } from "../../types/search";
+import { IArtistMatch } from "musicbrainz-api";
 
-export const ArtistTemplate = (props: ArtistsItem) => (
+export const ArtistTemplate = (props: IArtistMatch) => (
   <div data-controller="search" data-search-name-value={props.name}>
     <button
       class="result-item"
@@ -9,10 +9,10 @@ export const ArtistTemplate = (props: ArtistsItem) => (
       hx-vals={`{ "artistId": "${props.id}" }`}
       hx-target="#results"
     >
-      {props.images[0] && props.images[0].url && (
-        <img src={props.images[0].url} height="50" width="50" />
-      )}
       <p>{props.name}</p>
+      {props.disambiguation && (
+        <p class="disambiguation">{props.disambiguation}</p>
+      )}
     </button>
   </div>
 );

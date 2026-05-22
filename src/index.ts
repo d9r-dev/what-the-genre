@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { serveStatic } from "hono/bun";
 import { createIndexRoute } from "./routes/homepage";
 import { logger } from "hono/logger";
-import { AuthService } from "./services/AuthService";
+import { MusicBrainzApi } from "musicbrainz-api";
 import { createSearchRoute } from "./routes/search";
 import { createGenreRoute } from "./routes/genre";
 
@@ -15,11 +15,12 @@ app.route("/", createIndexRoute());
 app.route("/search", createSearchRoute());
 app.route("/genre", createGenreRoute());
 
-const authService: AuthService = new AuthService(
-  Bun.env.CLIENT_ID ?? null,
-  Bun.env.CLIENT_SECRET ?? null
-);
+const musicBrainzApi = new MusicBrainzApi({
+  appName: "what-the-genre",
+  appVersion: "2.0.0",
+  appContactInfo: "https://github.com/dka/what-the-genre",
+});
 
-globalThis.authService = authService;
+globalThis.musicBrainzApi = musicBrainzApi;
 
 export default app;

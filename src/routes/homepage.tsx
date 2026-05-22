@@ -8,7 +8,7 @@ export function createIndexRoute() {
     homepage.get('/', (c) => {
         const props: SiteData = {
             title: "What The Genre?",
-            description: "Find out what genre the artist you are listening on spotify is playing."
+            description: "Search for an artist to discover their genres."
         }
         return c.html(<HomepageTemplate {...props} />)
     })

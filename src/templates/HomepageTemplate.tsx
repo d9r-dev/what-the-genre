@@ -5,8 +5,7 @@ export const HomepageTemplate = (props: SiteData) => (
     <div class="wrapper">
       <h1>{props.title}</h1>
       <p class="intro-text">
-        You want to know what genre the artist you are listening to belongs to?
-        Just search for it below!
+        Search for an artist to discover their genres.
       </p>
       <div class="input-group search-input">
         <label class="input-group__label" for="myInput">
