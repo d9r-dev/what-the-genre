@@ -52,6 +52,7 @@ h2 {
 
 .result-item {
   display: flex;
+  gap: 1rem;
   padding: 1rem;
   align-items: center;
   color: white;
